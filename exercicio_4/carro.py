@@ -55,10 +55,87 @@ Carro {self.id} tem:
 """
 
 
-##TODO: MENU
+def geraCarro(aleatorio=0):
+    if aleatorio == 1:
+        return automovel(random.randint(40, 70), random.randint(0, 40), random.randint(5, 15))
+
+    capacidade, quantidade, consumo = 0, 0, 0
+    while capacidade := input("Digite a sua capacidade") and capacidade not in range(0, 200):
+        print("digite um numero inteiro para a capacidade")
+
+    while quantidade := input("Digite a sua quantidade") and quantidade not in range(0, 200):
+        print("digite um numero inteiro para a quantidade")
+
+    while consumo := input("Digite a sua consumo") and consumo not in range(0, 200):
+        print("digite um numero inteiro para a consumo")
+
+    return automovel(capacidade, quantidade, consumo)
+
+
+def menuEscolha():
+    while 1:
+        escolha = input("""
+    Escolha a opção:
+         1. Gerar Carro
+         2. Gerar Carro aleatório
+         3. Sair
+""")
+        escolha = int(escolha)
+        if int(escolha) in range(0, 4):
+            break
+    # while escolha := input("""
+    # Escolha a opção:
+    #     1. Gerar Carro
+    #     2. Gerar Carro aleatório
+    #     3. Sair
+    # """) and escolha not in range(0, 3):
+    #     print("escolha uma opção válida")
+
+    if escolha == 1:
+        return geraCarro()
+    if escolha == 2:
+        return geraCarro(1)
+    if escolha == 3:
+        rip = 1 / 0
+
+
+def menuCarro(carro):
+    while 1:
+        escolha = input("""
+    Escolha a opção:
+         1. Mostrar Carro
+         2. Andar
+         3. Abastecer
+         4. Ver Combustível
+         5. Ver Autonomia
+         6. Sair
+""")
+        escolha = int(escolha)
+        if escolha not in range(0, 6):
+            continue
+
+        # TODO: passar para funções, its a jumbled messsss
+        if escolha == 1:
+            print(carro)
+        if escolha == 2:
+            carro.percorre(int(input("Digite quanto quer percorrer: ")))
+        if escolha == 3:
+            carro.abastece(int(input("Digite quanto quer abastecer: ")))
+        if escolha == 4:
+            print(carro.combustivel())
+        if escolha == 5:
+            print(carro.autonomia())
+        if escolha == 6:
+            1 / 0
+    return
+
 
 def menu():
-    pass
+    carro = menuEscolha()
+
+    print(carro)
+
+    menuCarro(carro)
 
 
 def main():
@@ -71,14 +148,13 @@ def main():
     # carro.abastece(100)
     # print(carro)
 
-    a1 = automovel(60, 10, 15)
-    print(a1.autonomia())
-
-    a1.abastece(45)
-    a1.percorre(150)
-    a1.percorre(250)
-
-    pass
+    # a1 = automovel(60, 10, 15)
+    # print(a1.autonomia())
+    #
+    # a1.abastece(45)
+    # a1.percorre(150)
+    # a1.percorre(250)
+    menu()
 
 
 if __name__ == "__main__":
