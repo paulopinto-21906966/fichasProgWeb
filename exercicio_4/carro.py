@@ -83,13 +83,6 @@ def menuEscolha():
         escolha = int(escolha)
         if int(escolha) in range(0, 4):
             break
-    # while escolha := input("""
-    # Escolha a opção:
-    #     1. Gerar Carro
-    #     2. Gerar Carro aleatório
-    #     3. Sair
-    # """) and escolha not in range(0, 3):
-    #     print("escolha uma opção válida")
 
     if escolha == 1:
         return geraCarro()
@@ -126,7 +119,7 @@ def menuCarro(carro):
         if escolha == 5:
             print(carro.autonomia())
         if escolha == 6:
-            1 / 0
+            rip = 1 / 0
     return
 
 
@@ -139,15 +132,6 @@ def menu():
 
 
 def main():
-    # carro = automovel(60, 40, 8)
-    # print(carro)
-    # print(carro.autonomia())
-    # carro.percorre(10)
-    # carro.percorre(1000)
-    # carro.abastece(10)
-    # carro.abastece(100)
-    # print(carro)
-
     # a1 = automovel(60, 10, 15)
     # print(a1.autonomia())
     #
